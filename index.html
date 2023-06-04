@@ -7,17 +7,20 @@
     <link rel="stylesheet" href="/path/to/styles/default.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script src="app.js" defer></script>
+    <script type="module" src="app.js" defer></script>
+    <script type="module" src="index.js" defer></script>
     <title>Code Snapper</title>
 </head>
 <body>
     <div id="container">
         <div id="left-section">
             <div id="logo">CodeSnapper</div>
-            <textarea id="code-input"></textarea>
+            <textarea id="code-input" placeholder="add your code here!"></textarea>
             <div id="format-section">
-                <button id="format-button">format</button>
-                <textarea id="tags-area"></textarea>
+                <!-- <button id="format-button">format</button> -->
+                <textarea id="description-area" placeholder="code description here!"></textarea>
+                <textarea id="use-case-area" placeholder="code use case here!"></textarea>
+                <textarea id="tags-area" placeholder="tag your work here!"></textarea>
                 <button id="snip-it-button">snap it</button>
             </div>
         </div>

@@ -12,15 +12,29 @@
     --logo-background-color: #feefdd17;
     --code-input-background-color: #ff5e5b39;
     --code-input-focus-background-color: #7adfbc3d;
-    --code-input-color: #7ADFBB;
+    --code-input-focus-color: #7ADFBB;
+    --code-input-color: #FF5E5B;
     --code-input-border-color: #FF5E5B;
     --code-input-focus-border-color: #7ADFBB;
-    --format-button-background-color1: #ffc32b;
-    --format-button-background-color2: #ffbd17;
-    --format-button-color: #201E1F;
-    --tags-background-color: #9792e335;
-    --tags-color: #F9F5E3;
-    --tags-border-color: #635eaa;
+    --description-area-background-color: #e94f372c;
+    --description-area-focus-background-color: #00daae38;
+    --description-area-focus-color: #7ADFBB;
+    --description-area-focus-border-color: #00DAAE;
+    --description-area-color: #eeb2a9;
+    --description-area-border-color: #E94F37;
+    --use-case-area-background-color: #e94f372c;
+    --use-case-area-border-color: #E94F37;
+    --use-case-area-color: #eeb2a9;
+    --use-case-area-focus-background-color: #00daae38;
+    --use-case-area-focus-color: #7ADFBB;
+    --use-case-area-focus-border-color: #00DAAE;
+    --code-description-div-background-color: #E94F37;
+    --code-description-div-color: #201E1F;
+    --code-use-case-div-color: #201E1F;
+    --code-use-case-div-background-color: #E94F37;
+    --tags-color: #F6F7EB;
+    --tags-border-color: #F6F7EB;
+    --tags-background-color: #393E41;
     --snip-it-button-background-color: #9EE493;
     --snip-it-color: #201E1F;
     --right-section-background-color: #daf7dc3f;
@@ -60,7 +74,7 @@ body {
 }
 #left-section {
     display: grid;
-    grid-template-rows: 1fr 3fr 3fr;
+    grid-template-rows: 1fr 2fr 4fr;
     gap: 0.8rem;
     padding: 0.4rem;
     height: 100vh;
@@ -99,40 +113,48 @@ body {
 #code-input:focus {
     border: 4px solid var(--code-input-focus-border-color);
     background-color: var(--code-input-focus-background-color);
+    color: var(--code-input-focus-color);
 }
 #format-section {
     display: grid;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     gap: 0.4rem;
 }
-#format-button {
-    width: 100%;
-    outline: none;
-    border-radius: 0.4rem;
-    font-size: 1.3rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    background-color: var(--format-button-background-color1);
-    color: var(--format-button-color);
-    border: none;
-    padding: 1rem 2rem;
-    cursor: pointer;
-    transition: 0.1s all ease-in-out;
-}
-#format-button:hover {
-    background-color: var(--format-button-background-color2);
-}
-#tags-area {
+#description-area, #use-case-area, #tags-area {
     width: 100%;
     height: 100%;
     border-radius: 0.4rem;
     outline: none;
     padding: 0.4rem;
     font-size: 1.3rem;
+    resize: none;
+}
+#tags-area {
     background-color: var(--tags-background-color);
     color: var(--tags-color);
     border: 4px solid var(--tags-border-color);
-    resize: none;
+}
+#description-area {
+    background-color: var(--description-area-background-color);
+    color: var(--description-area-color);
+    border: 4px solid var(--description-area-border-color);
+    transition: 0.1s all ease-in-out;
+}
+#description-area:focus {
+    background-color: var(--code-input-focus-background-color);
+    color: var(--description-area-focus-color);
+    border: 4px solid var(--description-area-focus-border-color);
+}
+#use-case-area {
+    background-color: var(--use-case-area-background-color);
+    color: var(--use-case-area-color);
+    border: 4px solid var(--use-case-area-border-color);
+    transition: 0.1s all ease-in-out;
+}
+#use-case-area:focus {
+    background-color: var(--use-case-area-focus-background-color);
+    color: var(--use-case-area-focus-color);
+    border: 4px solid var(--use-case-area-focus-border-color);
 }
 #snip-it-button {
     width: 100%;
@@ -209,6 +231,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 0.4rem;
     overflow-y: auto;
+    grid-auto-flow: dense;
 }
 .snippet {
     display: flex;
@@ -258,6 +281,26 @@ body {
 }
 .enlarge-button {
     background-color: var(--enlarge-button-background-color);
+}
+.code-use-desc {
+    display: flex;
+    justify-self: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.4rem;
+}
+.code-description {
+    width: 100%;
+    background-color: var(--code-description-div-background-color);
+    color: var(--code-description-div-color);
+    padding: 0.5rem 1rem;
+}
+.code-use-case {
+    width: 100%;
+    background-color: var(--code-use-case-div-background-color);
+    color: var(--code-use-case-div-color);
+    padding: 0.5rem 1rem;
 }
 .code-tags {
     display: flex;

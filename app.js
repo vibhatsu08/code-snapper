@@ -2,8 +2,13 @@ let finalTagCounts = {}
 
 let codeInput = document.getElementById('code-input');
 let tagsArea = document.getElementById('tags-area');
+let descriptionArea = document.getElementById('description-area');
+let useCaseArea = document.getElementById('use-case-area');
 
 document.getElementById('snip-it-button').addEventListener('click', function() {
+    let description = descriptionArea.value.trim();
+    let useCase = useCaseArea.value.trim();
+
     let code = codeInput.value.trim();
     if (code === '') {
 		codeInput.value = "";
@@ -18,7 +23,7 @@ document.getElementById('snip-it-button').addEventListener('click', function() {
 	}
     let tags = extractTags(tagsArea.value.trim());
     console.log(tags)
-    let snippetDiv = createSnippetDiv(code, tags);
+    let snippetDiv = createSnippetDiv(code, description, useCase, tags);
     let snippetsBody = document.getElementById('snippets-body');
     snippetsBody.appendChild(snippetDiv);
     codeInput.value = "";
@@ -28,14 +33,13 @@ document.getElementById('snip-it-button').addEventListener('click', function() {
     updateTagCounts(tags, 1);
 });
 
-
 function extractTags(tagsText) {
     let tags = tagsText.trim().split(/\s+/);
     console.log(Array.from(new Set(tags)))
     return Array.from(new Set(tags));
 }
 
-function createSnippetDiv(code, tags) {
+function createSnippetDiv(code, description, useCase, tags) {
     let snippetDiv = document.createElement('div');
     let snippetButtonsDiv = document.createElement('div');
     let closeButtonDiv = document.createElement('button');
@@ -46,6 +50,9 @@ function createSnippetDiv(code, tags) {
     let translateButton = document.createElement('button');
     let codeBodyDiv = document.createElement('div');
     let codeGroundDiv = document.createElement('div');
+    let codeUseDesc = document.createElement('div');
+    let codeDescriptionDiv = document.createElement('div');
+    let codeUseCaseDiv = document.createElement('div');
     let codeTagsDiv = document.createElement('div');
 
     codeGroundDiv.textContent = code;
@@ -63,22 +70,33 @@ function createSnippetDiv(code, tags) {
     translateButton.classList.add('gpt-translate');
     codeBodyDiv.classList.add('code-body');
     codeGroundDiv.classList.add('code-ground');
+    codeUseDesc.classList.add('code-use-desc');
+    codeDescriptionDiv.classList.add('code-description');
+    codeUseCaseDiv.classList.add('code-use-case');
     codeTagsDiv.classList.add('code-tags');
+
+    codeDescriptionDiv.textContent = description;
+    codeUseCaseDiv.textContent = useCase;
+
 
     closeButtonDiv.addEventListener('click', function() {
         deleteSnippet(snippetDiv);
     });
 
+    codeUseDesc.appendChild(codeUseCaseDiv);
+    codeUseDesc.appendChild(codeDescriptionDiv);
     snippetButtonsDiv.appendChild(closeButtonDiv);
     snippetButtonsDiv.appendChild(enlargeButtonDiv);
     snippetDiv.appendChild(snippetButtonsDiv);
     snippetDiv.appendChild(codeBodyDiv);
+    snippetDiv.appendChild(codeUseDesc);
     snippetDiv.appendChild(gptButtonsContainerDiv);
     gptButtonsContainerDiv.appendChild(useCaseButton);
     gptButtonsContainerDiv.appendChild(explainButton);
     gptButtonsContainerDiv.appendChild(translateButton);
     codeBodyDiv.appendChild(codeGroundDiv);
     codeBodyDiv.appendChild(codeTagsDiv);
+    codeBodyDiv.appendChild(codeUseDesc);
     codeBodyDiv.appendChild(gptButtonsContainerDiv);
 
     tags.forEach(function(tag) {
