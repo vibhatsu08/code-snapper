@@ -6,47 +6,45 @@
 }
 
 :root {
+    --black-color: #272D2D;
+    --white-color: #F6F8FF;
+    --dark-color: #32174D;
+    --purple-color: #8F00FF;
+    --background-color: #1b191d;
+    --logo-background-color: #242124;
+    --inputs-background-color: #242124;
+    --button-background-color: #6A5ACD;
+
     --background-color-left: #2b2b2b;
     --background-color-right: #161616;
     --logo-color: #FEEFDD;
-    --logo-background-color: #feefdd17;
     --code-input-background-color: #ff5e5b39;
     --code-input-focus-background-color: #7adfbc3d;
     --code-input-focus-color: #7ADFBB;
     --code-input-color: #FF5E5B;
-    --code-input-border-color: #FF5E5B;
-    --code-input-focus-border-color: #7ADFBB;
     --description-area-background-color: #e94f372c;
     --description-area-focus-background-color: #00daae38;
     --description-area-focus-color: #7ADFBB;
-    --description-area-focus-border-color: #00DAAE;
     --description-area-color: #eeb2a9;
-    --description-area-border-color: #E94F37;
     --use-case-area-background-color: #e94f372c;
-    --use-case-area-border-color: #E94F37;
     --use-case-area-color: #eeb2a9;
     --use-case-area-focus-background-color: #00daae38;
     --use-case-area-focus-color: #7ADFBB;
-    --use-case-area-focus-border-color: #00DAAE;
     --code-description-div-background-color: #E94F37;
     --code-description-div-color: #201E1F;
     --code-use-case-div-color: #201E1F;
     --code-use-case-div-background-color: #E94F37;
     --tags-color: #F6F7EB;
-    --tags-border-color: #F6F7EB;
     --tags-background-color: #393E41;
     --snip-it-button-background-color: #9EE493;
     --snip-it-color: #201E1F;
     --right-section-background-color: #daf7dc3f;
-    --right-section-border-color: #DAF7DC;
     --right-section-color: #DAF7DC;
     --final-tags-section-header-background-color: #e6af2e2c;
-    --final-tags-section-header-border-color: #E6AF2E;
     --final-tags-section-header-color: #E6AF2E;
     --final-tags-tags-background-color: #EBF2FA;
     --final-tags-tags-color: #201E1F;
     --snippet-background-color: #2f2f2f34;
-    --snippet-border-color: #c0c0c0;
     --code-body-background-color: #EAF0CE;
     --delete-button-background-color: #FF4B3E;
     --enlarge-button-background-color: #15ff57;
@@ -60,7 +58,7 @@
 }
 
 body {
-    background: linear-gradient(to bottom right, var(--background-color-left), var(--background-color-right));
+    background-color: var(--background-color);
     background-repeat: no-repeat;
     background-attachment: fixed;
     font-family: 'Raleway', sans-serif;
@@ -86,8 +84,8 @@ body {
     top: 0;
 }
 #logo {
-    background-color: var(--logo-background-color);
-    color: var(--logo-color);
+    background-color: var(--white-color);
+    color: var(--logo-background-color);
     font-size: 2rem;
     padding: 1.5rem;
     display: flex;
@@ -95,25 +93,18 @@ body {
     align-items: center;
     flex-direction: column;
     border-radius: 0.4rem;
-    border: 4px solid var(--logo-color);
 }
 #code-input {
     padding: 0.4rem;
     outline: none;
     border-radius: 0.4rem;
     font-size: 1.3rem;
-    background-color: var(--code-input-background-color);
-    border: 4px solid var(--code-input-border-color);
-    color: var(--code-input-color);
+    background-color: var(--inputs-background-color);
+    color: var(--white-color);
     height: 100%;
     width: 100%;
     resize: none;
     transition: 0.1s all ease-in-out;
-}
-#code-input:focus {
-    border: 4px solid var(--code-input-focus-border-color);
-    background-color: var(--code-input-focus-background-color);
-    color: var(--code-input-focus-color);
 }
 #format-section {
     display: grid;
@@ -130,31 +121,18 @@ body {
     resize: none;
 }
 #tags-area {
-    background-color: var(--tags-background-color);
-    color: var(--tags-color);
-    border: 4px solid var(--tags-border-color);
+    background-color: var(--inputs-background-color);
+    color: var(--white-color);
 }
 #description-area {
-    background-color: var(--description-area-background-color);
-    color: var(--description-area-color);
-    border: 4px solid var(--description-area-border-color);
+    background-color: var(--inputs-background-color);
+    color: var(--white-color);
     transition: 0.1s all ease-in-out;
-}
-#description-area:focus {
-    background-color: var(--code-input-focus-background-color);
-    color: var(--description-area-focus-color);
-    border: 4px solid var(--description-area-focus-border-color);
 }
 #use-case-area {
-    background-color: var(--use-case-area-background-color);
+    background-color: var(--inputs-background-color);
     color: var(--use-case-area-color);
-    border: 4px solid var(--use-case-area-border-color);
     transition: 0.1s all ease-in-out;
-}
-#use-case-area:focus {
-    background-color: var(--use-case-area-focus-background-color);
-    color: var(--use-case-area-focus-color);
-    border: 4px solid var(--use-case-area-focus-border-color);
 }
 #snip-it-button {
     width: 100%;
@@ -163,8 +141,8 @@ body {
     font-size: 1.3rem;
     text-transform: uppercase;
     font-weight: 700;
-    background-color: var(--snip-it-button-background-color);
-    color: var(--snip-it-color);
+    background-color: var(--button-background-color);
+    color: var(--white-color);
     border: none;
     padding: 1rem 2rem;
     cursor: pointer;
@@ -182,7 +160,6 @@ body {
     height: 100%;
     background-color: var(--right-section-background-color);
     color: var(--right-section-color);
-    border: 4px solid var(--right-section-border-color);
     border-radius: 0.4rem;
     display: flex;
     justify-content: center;
@@ -197,7 +174,6 @@ body {
     height: 100%;
     background-color: var(--final-tags-section-header-background-color);
     color: var(--final-tags-section-header-color);
-    border: 4px solid var(--final-tags-section-header-border-color);
     border-radius: 0.4rem;
     display: flex;
     justify-content: center;
@@ -241,7 +217,6 @@ body {
     min-height: 20vh;
     height: fit-content;
     background-color: var(--snippet-background-color);
-    border: 4px solid var(--snippet-border-color);
     border-radius: 0.4rem;
     padding: 0.4rem;
     gap: 1rem;
@@ -264,7 +239,7 @@ body {
 .code-ground {
     width: 100%;
     height: 100%;
-    background-color: var(--code-body-background-color);
+    background-color: var(--inputs-background-color);
     padding: 0.4rem;
     border-radius: 0.2rem;
 }
@@ -332,7 +307,7 @@ body {
     font-size: 1rem;
     font-weight: 500;
     background-color: var(--gpt-buttons-background-color);
-    color: var(--gpt-buttons-color);
+    color: var(--gpt--color);
     border: none;
     outline: none;
     padding: 0.5rem 1rem;

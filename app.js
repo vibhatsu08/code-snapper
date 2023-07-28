@@ -1,5 +1,4 @@
 let finalTagCounts = {};
-// loadFromLocalStorage();
 
 let codeInput = document.getElementById("code-input");
 let tagsArea = document.getElementById("tags-area");
@@ -36,7 +35,6 @@ document
 
 		finalTagsCount();
 		updateTagCounts(tags, 1);
-		// saveToLocalStorage();
 	});
 
 function extractTags(tagsText) {
@@ -143,13 +141,3 @@ function updateTagCounts(tags, increment) {
 		}
 	});
 }
-// function saveToLocalStorage() {
-//     localStorage.setItem('finalTagCounts', JSON.stringify(finalTagCounts));
-// }
-// function loadFromLocalStorage() {
-//     const savedTagCounts = localStorage.getItem('finalTagCounts');
-//     if (savedTagCounts) {
-//         finalTagCounts = JSON.parse(savedTagCounts);
-//         finalTagsCount();
-//     }
-// }
